@@ -1,4 +1,4 @@
-# 🚀 Python Backend Project
+# 🚀 Real Estate ChatBot Backend
 
 ![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)
 ![FastAPI](https://img.shields.io/badge/FastAPI-0.100.0-0?logo=fastapi&logoColor=white&label=FastAPI)
@@ -10,9 +10,9 @@
 
 ## 🧠 About the Project
 
-Welcome to the **Python Backend Project** – a high-performance, asynchronous backend built with **FastAPI**, powered by **Python** and **PostgreSQL**.
+Welcome to the **Real Estate ChatBot Backend** – a high-performance, asynchronous backend built with **FastAPI**, powered by **Python** and **PostgreSQL**.
 
-> ⚡️ Fast, scalable, and production-ready backend to kickstart your application.
+> ⚡️ This backend powers a chatbot that delivers real-time and historical real estate information, providing fast, accurate responses to property-related queries anytime.
 
 ---
 
