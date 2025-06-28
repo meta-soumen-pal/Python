@@ -32,13 +32,22 @@ Welcome to the **Python Backend Project** – a high-performance, asynchronous b
 
 ```bash
 .
-├── app/
-│   ├── main.py             # Entry point
-│   ├── api/                # API routes
-│   ├── models/             # Database models
-│   ├── schemas/            # Pydantic schemas
-│   ├── services/           # Business logic
-│   └── db/                 # Database connection
-├── tests/                  # Test cases
-├── requirements.txt        # Python dependencies
-└── README.md               # Project overview
+app/
+├── main.py                # Entry point
+├── routes/                # API routes
+│   └── chat.py
+├── models/                # Database models
+├── schemas/               # Pydantic schemas
+├── services/              # Business logic
+│   ├── create_real_estate_query.py
+│   ├── is_real_estate_query.py
+│   ├── is_realtime_query.py
+│   ├── lama_service.py
+│   └── perplexity_service.py
+├── database.py            # Database connection
+├── crud.py                # CRUD operations
+├── __init__.py
+tests/                     # Test cases
+requirements.txt           # Python dependencies
+.env                       # Environment variables
+README.md                  # Project overview
