@@ -24,7 +24,6 @@ Welcome to the **Python Backend Project** – a high-performance, asynchronous b
 | ⚡ FastAPI   | Web framework for APIs        |
 | 🐘 PostgreSQL | Relational Database System   |
 | 🔐 Pydantic  | Data validation and parsing   |
-| 🧪 Pytest    | Testing framework             |
 
 ---
 
