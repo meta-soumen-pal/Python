@@ -41,29 +41,41 @@ class ChatRequest(BaseModel):
 @router.post("/chat")
 def chat(request: ChatRequest, db: Session = Depends(get_db)):
     
+    # Extract the user's query from the request
     query = request.query
-    # Check query is related to real_estate or not
+
+    # Check if the query is related to real estate
     if is_real_estate_query(query):
+        # Get the current timestamp for logging purposes
         current_datetime = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        
-        # If query is related to real tine then hand over to perplexity otherwise lama
+
+        # Determine if the query is requesting real-time information
         if is_realtime_query(query):
-            # Prepare query for best result
+            # Prepare the query to ensure the best possible real-time response
             query = create_real_estate_query(query)
-            # Call perplexity ai
+            # Send the query to the Perplexity AI service for live data
             content = perplexity_service(query)
         else:
-            # Prepare query for best result
             query = create_real_estate_query(query)
-             # Call perplexity ai
-            content = lama_service(query)
-        # Save query to data base
-        crud.save_chat_history(db, time=current_datetime, query=query, response=content)
-        #return content
-        return {"response": content}
-    # If inside query some real estate key word not present then return this
-    return {"response": "Thank you for reaching out. I can only assist with property-related questions."}
 
+        # Refine the query further for LLaMA by wrapping the content into a precise summary instruction
+        query = (
+            "Based on the following information, generate a precise, well-structured summary or result. "
+            "Highlight key insights, use bullet points or sections where helpful, and ensure clarity and accuracy. "
+            "Here is the information:\n\n" + content
+        )
+
+        # Send the refined query to the LLaMA service for structured response generation
+        content = lama_service(query)
+
+        # Save the chat history to the database for future reference or analytics
+        crud.save_chat_history(db, time=current_datetime, query=query, response=content)
+
+        # Return the generated response to the client
+        return {"response": content}
+
+    # If the query is unrelated to real estate, return a polite rejection message
+    return {"response": "Thank you for reaching out. I can only assist with property-related questions."}
 
 @router.get("/show-responses/{page}", response_model=list[ChatHistoryOut])
 def get_responses(

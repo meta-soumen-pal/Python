@@ -3,7 +3,7 @@
 
 def is_real_estate_query(query:str):
     real_estate_keywords = [
-    "real estate", "house", "property", "rent", "buy", "sell", "apartment", "mortgage","land","real estate", "property", "house", "rent", "apartment", "buy", "sell", "mortgage", "realtor",
+    "real estate", "house", "home","property", "rent", "buy", "sell", "apartment", "mortgage","land","real estate", "property", "house", "rent", "apartment", "buy", "sell", "mortgage", "realtor",
     "real estate", "real estate near me", "real estate for sale", "real estate to buy", "real estate for rent",
     "real estate listings", "real estate agent", "real estate broker", "realtor", "real estate agency",
     "real estate companies", "residential real estate", "commercial real estate", "real estate market",
