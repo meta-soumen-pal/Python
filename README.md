@@ -35,15 +35,9 @@ Welcome to the **Python Backend Project** – a high-performance, asynchronous b
 app/
 ├── main.py                # Entry point
 ├── routes/                # API routes
-│   └── chat.py
 ├── models/                # Database models
 ├── schemas/               # Pydantic schemas
 ├── services/              # Business logic
-│   ├── create_real_estate_query.py
-│   ├── is_real_estate_query.py
-│   ├── is_realtime_query.py
-│   ├── lama_service.py
-│   └── perplexity_service.py
 ├── database.py            # Database connection
 ├── crud.py                # CRUD operations
 ├── __init__.py
